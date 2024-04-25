@@ -10,6 +10,13 @@
 с множествами. Код должен расширяться
 на любое большее количество друзей."""
 
+# ------------------ОПИСАНИЕ ПРОГРАММЫ------------------
+# 1. Генерирует кол-во друзей
+# 2. Генерирует друзей (создается список друзей, который будет потом ключами к словарю)
+# 3. Генерируется кортеж из вещей (используется для создания словаря)
+# 4. Создается словарь друзей + предметы
+
+
 from random import randint as rnd
 
 
@@ -70,7 +77,7 @@ def create_persons_with_backpack():
     return persons_dict_plus_staff
 
 
-# Уникальные вещи, кол-во 1--------------------------------------
+# Словарь с вещами и их кол-вом--------------------------------------
 def find_quantity_of_items():
     dict_1 = {}
     for key, item in persons_dict.items():
@@ -80,6 +87,7 @@ def find_quantity_of_items():
     return dict_1
 
 
+# Создается список с коль-вом вещей = 1. Уникальные вещи
 def create_list_with_min_quantity_of_items():
     min_quantity_of_items = []
     for i, k in find_quantity_of_items().items():
@@ -88,6 +96,7 @@ def create_list_with_min_quantity_of_items():
     return min_quantity_of_items
 
 
+# Создается список вещей с кол-вом NUMBER_OF_PERSONS - 1 для поиска вещи, которой нет у единственного человека
 def create_list_with_max_quantity_of_items():
     max_quantity_of_items = []
     for i, k in find_quantity_of_items().items():
@@ -96,6 +105,7 @@ def create_list_with_max_quantity_of_items():
     return max_quantity_of_items
 
 
+# Список имен и вещей, которые есть у остальных, но нет у одного
 def show_who_doesnt_have_an_item():
     for itm in create_list_with_max_quantity_of_items():
         for key, item in persons_dict.items():
